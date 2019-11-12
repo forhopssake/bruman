@@ -4,17 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'dashboard',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+  { path: 'inventory', loadChildren: './inventory/inventory.module#InventoryPageModule' },
+  { path: 'new-inventory-item', loadChildren: './inventory/new-inventory-item/new-inventory-item.module#NewInventoryItemPageModule' }
 ];
 
 @NgModule({
